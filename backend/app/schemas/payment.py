@@ -14,7 +14,6 @@ class PaymentResponse(BaseModel):
     amount: float
     house_number: str
     status: str
-    created_at: datetime  # Include created_at in the response
-
+    created_at: datetime  
     class Config:
-        from_attributes = True  # Use from_attributes instead of orm_mode
+        from_attributes = True 

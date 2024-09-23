@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/muniohpu/Desktop/final./backend/.venv"
+set -gx VIRTUAL_ENV "/home/muniohpu/Desktop/BOOM_RENTALS_BACKEND/backend/.venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

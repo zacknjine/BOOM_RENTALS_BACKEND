@@ -18,7 +18,7 @@ def admin_only(current_user: User = Depends(get_current_user)):
 
 @router.post("/properties/", response_model=Property)
 def add_property(
-    property: PropertyCreate,  # Use the Pydantic model
+    property: PropertyCreate,  
     db: Session = Depends(get_db),
     current_user: User = Depends(admin_only)
 ):
@@ -56,7 +56,7 @@ async def register_user(
     db: Session = Depends(get_db),
     current_user: User = Depends(admin_only)
 ):
-    # Hash the password before storing it
+    
     hashed_password = User.hash_password(user.password)
     db_user = User(username=user.username, email=user.email, hashed_password=hashed_password, role=user.role)
     db.add(db_user)
@@ -96,7 +96,7 @@ async def update_user(
     if not user:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
 
-    # Update fields only if they are provided
+    
     for key, value in user_update.dict(exclude_unset=True).items():
         if value is not None:
             setattr(user, key, value)

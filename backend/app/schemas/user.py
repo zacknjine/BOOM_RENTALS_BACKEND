@@ -22,4 +22,4 @@ class User(UserBase):
     id: int
 
     class Config:
-        from_attributes = True  # This allows Pydantic to work with SQLAlchemy models
+        from_attributes = True  

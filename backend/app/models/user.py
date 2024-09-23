@@ -1,4 +1,4 @@
-# app/models/user.py
+
 from sqlalchemy import Column, String, Integer, Enum
 from sqlalchemy.orm import relationship
 from passlib.context import CryptContext

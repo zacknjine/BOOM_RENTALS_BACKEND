@@ -6,29 +6,29 @@ from app.schemas.message import MessageCreate, MessageReply
 from app.models.property import Property
 
 
-# Create a new payment entry
+
 def create_payment(db: Session, payment: PaymentCreate, user_id: int) -> Payment:
     db_payment = Payment(
         phone_number=payment.phone_number,
         amount=payment.amount,
         house_number=payment.house_number,
-        status="pending",  # Initialize status as pending
-        created_by_id=user_id  # Set the created_by_id field
+        status="pending", 
+        created_by_id=user_id 
     )
     db.add(db_payment)
     db.commit()
     db.refresh(db_payment)
     return db_payment
 
-# Get payment history for a specific user 
+
 def get_user_payments(db: Session, user_id: int):
     return db.query(Payment).filter(Payment.created_by_id == user_id).all()
 
-# Get all payments (for admin)
+
 def get_all_payments(db: Session):
     return db.query(Payment).all()
 
-# Get a payment by transaction ID
+
 def get_payment_by_transaction_id(db: Session, transaction_id: str):
     return db.query(Payment).filter(Payment.transaction_id == transaction_id).first()
 

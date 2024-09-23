@@ -1,11 +1,11 @@
-# app/models/message.py
+
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Enum
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from app.database import Base
 from enum import Enum as PyEnum
 
-# Urgency Enum for Message
+
 class UrgencyLevel(str, PyEnum):
     low = "low"
     medium = "medium"
@@ -19,6 +19,6 @@ class Message(Base):
     created_by_id = Column(Integer, ForeignKey('users.id'), nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     urgency = Column(Enum(UrgencyLevel), default=UrgencyLevel.low, nullable=False)
-    reply = Column(String, nullable=True)  # Field to store admin's reply
+    reply = Column(String, nullable=True)  
 
-    created_by = relationship("User", backref="messages")  # Relationship to the User
+    created_by = relationship("User", backref="messages")

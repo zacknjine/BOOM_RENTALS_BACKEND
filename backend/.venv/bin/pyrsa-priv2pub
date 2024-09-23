@@ -1,4 +1,4 @@
-#!/home/muniohpu/Desktop/final./backend/.venv/bin/python
+#!/home/muniohpu/Desktop/BOOM_RENTALS_BACKEND/backend/.venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

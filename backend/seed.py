@@ -4,11 +4,11 @@ from app.models.user import User, Role
 from app.models.payment import Payment
 from app.models.message import Message 
 
-# Create all tables in the database
+
 Base.metadata.create_all(bind=engine)
     
 def seed_data(db: Session):
-    # Seed users
+    
     if db.query(User).count() > 0:
         print("Database already seeded with users.")
         return
@@ -27,7 +27,7 @@ def seed_data(db: Session):
         role=Role.admin
     )
 
-    # Add users to the session and commit to the database
+   
     db.add_all([tenant_user, admin_user])
     db.commit()
     
